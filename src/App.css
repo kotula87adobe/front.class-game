@@ -1,3 +1,15 @@
 html{
   font-size: 10px;
 }
+
+@media (max-width: 400px) {
+  html{
+    font-size: 4px;
+  }
+}
+
+@media (max-height: 400px) {
+  html{
+    font-size: 4px;
+  }
+}

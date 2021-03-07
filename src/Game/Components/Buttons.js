@@ -19,6 +19,10 @@ const useStyles = makeStyles((theme) => ({
     button: {
         fontSize: '5rem',
         minWidth: '4rem',
+        padding: '2rem',
+        '& span': {
+            lineHeight: 1
+        }
     },
     icon: {
         fontSize: '10rem'
@@ -38,7 +42,14 @@ const Buttons = ({numbers,answer, setAnswer, setChecked, handleActiveExercise})=
 
     const {root, button, icon, refresh} = useStyles()
 
-    const buttons = numbers.map((val,i)=><Button className={button} key={i} onClick={()=>{setAnswer(answer + val)}}>{val}</Button>)
+    const handleClick = (val) =>{
+
+        if(answer.toString().length >= 3) return
+
+        setAnswer(answer + val)
+    }
+
+    const buttons = numbers.map((val,i)=><Button className={button} key={i} onClick={()=>{handleClick(val)}}>{val}</Button>)
 
     return (
         <div className={root}>
