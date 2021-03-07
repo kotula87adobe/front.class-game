@@ -4,32 +4,7 @@ import Context from "./Context";
 import axios from "axios";
 import _ from 'lodash';
 
-const exercisesList = [
-    {
-        first: 3,
-        sign: '·',
-        second: 4,
-        result: 12
-    },
-    {
-        first: 2,
-        sign: '·',
-        second: 9,
-        result: 18
-    },
-    {
-        first: 3,
-        sign: '·',
-        second: 7,
-        result: 21
-    },
-    {
-        first: 5,
-        sign: '·',
-        second: 8,
-        result: 40
-    },
-]
+import {multiplication} from "./Game/Exercises/multiplication";
 
 const MyProvider = (props) => {
 
@@ -42,7 +17,7 @@ const MyProvider = (props) => {
 
             setAnswer('')
             setChecked(false)
-            setExercise(_.sample(exercisesList))
+            setExercise(_.sample(multiplication))
         }
 
         useEffect(()=>{
