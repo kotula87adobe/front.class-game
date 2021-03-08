@@ -1,12 +1,17 @@
-import React, {useContext} from "react";
+import React, {useContext, useEffect} from "react";
+import {
+    useParams
+} from "react-router-dom";
 
 import {Container, Grid, makeStyles} from "@material-ui/core";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Paper from "@material-ui/core/Paper";
 
+import Context from "../Context";
+
 import Exercise from "./Components/Exercise";
 import Buttons from "./Components/Buttons";
-import Context from "../Context";
+import UserList from "./UserList";
 
 const useStyle = makeStyles(theme=>({
     paper: {
@@ -31,8 +36,13 @@ const Game = () =>{
     const {paper} = useStyle()
 
     const ContextData = useContext(Context)
+
+    const {type,max, i,j} = useParams()
+    console.log({j})
+
     const {data} = ContextData
     const {methods} = ContextData
+
 
     const answerClass = () =>{
 
@@ -48,10 +58,17 @@ const Game = () =>{
 
     }
 
+    useEffect(()=>{
+        methods.handleGenerateExercises(type,max,i,j)
+    },[])
+
     return (
         <>
             <CssBaseline/>
             <Container component={'main'} fixed>
+
+                <UserList />
+
                 <Paper
                     className={paper + ' ' + classes[answerClass()]}
                     variant={"elevation"}

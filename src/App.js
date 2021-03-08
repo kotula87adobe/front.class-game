@@ -47,7 +47,7 @@ function App() {
 
           <Router>
               <Switch>
-                  <Route exact path={'/'}>
+                  <Route exact path={'/:type/:max/:i?/:j?'}>
                       <Game/>
                   </Route>
                   <Route exact path={'/test'}>
