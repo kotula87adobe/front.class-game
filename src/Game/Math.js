@@ -9,8 +9,8 @@ import Paper from "@material-ui/core/Paper";
 
 import Context from "../Context";
 
-import Exercise from "./Components/Exercise";
-import Buttons from "./Components/Buttons";
+import Exercise from "./ComponentsMath/Exercise";
+import Buttons from "./ComponentsMath/Buttons";
 import UserList from "./UserList";
 
 const useStyle = makeStyles(theme=>({
@@ -30,7 +30,7 @@ const useStyle = makeStyles(theme=>({
     }
 }))
 
-const Game = () =>{
+const Math = () =>{
 
     const classes = useStyle()
     const {paper} = useStyle()
@@ -59,7 +59,7 @@ const Game = () =>{
     }
 
     useEffect(()=>{
-        methods.handleGenerateExercises(type,max,i,j)
+        methods.handleGenerateExercises('matematyka',type,max,i,j)
     },[])
 
     return (
@@ -98,4 +98,4 @@ const Game = () =>{
 
 }
 
-export default Game;
+export default Math;

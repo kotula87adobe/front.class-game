@@ -1,10 +1,4 @@
-let multiplication = [
-
-]
-
-
-
-const generateExercises = (max,firstColumn,secondColumn)=>{
+const mathMultiplicationGenerateExercises = (max, firstColumn, secondColumn)=>{
 
     let data = [];
 
@@ -25,4 +19,4 @@ const generateExercises = (max,firstColumn,secondColumn)=>{
 
 }
 
-export {generateExercises}
+export {mathMultiplicationGenerateExercises}

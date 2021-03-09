@@ -20,8 +20,12 @@ import CustomContainer from "./Moje/CustomContainer";
 
 import MyProvider from "./Provider";
 
-import Game from "./Game/Game";
 import {makeStyles} from "@material-ui/core";
+
+import StartView from "./Game/StartView";
+import Polish from "./Game/Polish";
+import Math from "./Game/Math";
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -47,8 +51,14 @@ function App() {
 
           <Router>
               <Switch>
-                  <Route exact path={'/:type/:max/:i?/:j?'}>
-                      <Game/>
+                  <Route exact path={'/'} >
+                    <StartView />
+                  </Route>
+                  <Route exact path={'/matematyka/:type/:max/:i?/:j?'}>
+                      <Math/>
+                  </Route>
+                  <Route exact path={'/polski/:type/:max'}>
+                      <Polish/>
                   </Route>
                   <Route exact path={'/test'}>
                       <CustomContainer/>
