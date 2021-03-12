@@ -17,15 +17,15 @@ const useStyles = makeStyles((theme) => ({
         },
     },
     button: {
-        fontSize: '5rem',
-        minWidth: '4rem',
-        padding: '2rem',
+        fontSize: '2.5rem',
+        minWidth: '2rem',
+        padding: '1rem',
         '& span': {
             lineHeight: 1
         }
     },
     icon: {
-        fontSize: '10rem'
+        fontSize: '5rem'
     },
     refresh: {
         position: "absolute",
@@ -42,14 +42,22 @@ const Buttons = ({numbers,answer, setAnswer, setChecked, handleActiveExercise})=
 
     const {root, button, icon, refresh} = useStyles()
 
-    const handleClick = (val) =>{
+    const handleAnswerButtonsClick = (val) =>{
 
         if(answer.toString().length >= 3) return
 
         setAnswer(answer + val)
     }
 
-    const buttons = numbers.map((val,i)=><Button className={button} key={i} onClick={()=>{handleClick(val)}}>{val}</Button>)
+    const handleCheckButton = () =>{
+            setChecked(true)
+    }
+    const handleClearButton = () =>{
+        setChecked(false)
+        setAnswer('')
+    }
+
+    const buttons = numbers.map((val,i)=><Button className={button} key={i} onClick={()=>{handleAnswerButtonsClick(val)}}>{val}</Button>)
 
     return (
         <div className={root}>
@@ -57,10 +65,10 @@ const Buttons = ({numbers,answer, setAnswer, setChecked, handleActiveExercise})=
                 {buttons}
             </ButtonGroup>
             <ButtonGroup  variant="text">
-                <Button onClick={()=>{setChecked(true)}}>
+                <Button onClick={handleCheckButton}>
                     <CheckCircleIcon style={{color: 'darkgreen'}} className={icon} />
                 </Button>
-                <Button onClick={()=>setAnswer('')}>
+                <Button onClick={handleClearButton}>
                     <BackspaceIcon style={{color: 'red'}} className={icon} />
                 </Button>
             </ButtonGroup>

@@ -43,34 +43,23 @@ const Math = () =>{
     const {data} = ContextData
     const {methods} = ContextData
 
-
-    const answerClass = () =>{
-
-        if(data.answer === '' || data.checked===false){
-            return 'empty'
-        }
-        else if(data.answer === data.exercise.result.toString()){
-            return 'correct'
-        }
-        else{
-            return 'wrong'
-        }
-
-    }
-
     useEffect(()=>{
         methods.handleGenerateExercises('matematyka',type,max,i,j)
     },[])
+
+    useEffect(()=>{
+        methods.setCorrectAnswer(data.exercise?.result?.toString())
+    },[data.exercise])
 
     return (
         <>
             <CssBaseline/>
             <Container component={'main'} fixed>
 
-                <UserList />
+                {/*<UserList />*/}
 
                 <Paper
-                    className={paper + ' ' + classes[answerClass()]}
+                    className={paper + ' ' + classes[data.answerClass]}
                     variant={"elevation"}
                     elevation={3}
                 >

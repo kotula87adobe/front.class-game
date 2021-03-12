@@ -3,13 +3,14 @@ import {makeStyles, Typography} from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        padding: '3rem',
+        padding: '2rem',
     },
     exercise: {
-        fontSize: '4rem'
+        fontSize: '3rem'
     },
     quest: {
-        fontSize: '3rem'
+        fontSize: '2rem',
+        fontWeight: "bolder"
     },
 }));
 

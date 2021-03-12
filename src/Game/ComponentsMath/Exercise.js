@@ -3,10 +3,10 @@ import {makeStyles, Typography} from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        padding: '3rem',
+        padding: '1.5rem',
     },
     exercise: {
-        fontSize: '20rem'
+        fontSize: '10rem'
     }
 }));
 

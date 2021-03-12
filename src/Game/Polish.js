@@ -43,23 +43,13 @@ const Polish = () =>{
     const {methods} = ContextData
 
 
-    const answerClass = () =>{
-
-        if(data.answer === '' || data.checked===false){
-            return 'empty'
-        }
-        else if(data.answer === data.exercise.correctAnswer){
-            return 'correct'
-        }
-        else{
-            return 'wrong'
-        }
-
-    }
-
     useEffect(()=>{
         methods.handleGenerateExercises('polski',type, max)
     },[])
+
+    useEffect(()=>{
+        methods.setCorrectAnswer(data.exercise?.correctAnswer)
+    },[data.exercise])
 
     return (
         <>
@@ -69,7 +59,7 @@ const Polish = () =>{
                 {/*<UserList />*/}
 
                 <Paper
-                    className={paper + ' ' + classes[answerClass()]}
+                    className={paper + ' ' + classes[data.answerClass]}
                     variant={"elevation"}
                     elevation={3}
                 >

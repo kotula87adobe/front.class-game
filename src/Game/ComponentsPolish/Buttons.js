@@ -7,6 +7,8 @@ import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import BackspaceIcon from '@material-ui/icons/Backspace';
 import CachedIcon from '@material-ui/icons/Cached';
 
+import _ from 'lodash';
+
 const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
@@ -17,12 +19,15 @@ const useStyles = makeStyles((theme) => ({
         },
     },
     button: {
-        fontSize: '3rem',
-        minWidth: '4rem',
-        padding: '2rem',
+        fontSize: '1.5rem',
+        minWidth: '2rem',
+        padding: '1rem',
         '& span': {
             lineHeight: 1
         }
+    },
+    buttonChecked : {
+        backgroundColor: 'darkgreen'
     },
     icon: {
         fontSize: '5rem'
@@ -33,20 +38,36 @@ const useStyles = makeStyles((theme) => ({
         bottom: '10%',
         zIndex: 10,
         '& svg': {
-            fontSize: '8rem',
+            fontSize: '4rem',
         },
     }
 }));
 
 const Buttons = ({answers, answer, setAnswer, setChecked, handleActiveExercise})=>{
 
-    const {root, button, icon, refresh} = useStyles()
+    const {root, button, icon, refresh, buttonChecked} = useStyles()
 
-    const handleClick = (val) =>{
+    const handleAnswerButtonsClick = (val) =>{
         setAnswer(val)
     }
 
-    const buttons = answers.map((val,i)=><Button className={button} key={i} onClick={()=>{handleClick(val)}}>{val}</Button>)
+    const handleCheckButton = () =>{
+        setChecked(true)
+    }
+    const handleClearButton = () =>{
+        setChecked(false)
+        setAnswer('')
+    }
+
+    const buttons = answers.map((val,i)=>(
+        <Button
+            className={[button,answer===val?buttonChecked:'']}
+            key={i}
+            onClick={()=>{handleAnswerButtonsClick(val)}}
+        >
+            {val}
+        </Button>
+    ))
 
     return (
         <div className={root}>
@@ -54,10 +75,10 @@ const Buttons = ({answers, answer, setAnswer, setChecked, handleActiveExercise})
                 {buttons}
             </ButtonGroup>
             <ButtonGroup  variant="text">
-                <Button onClick={()=>{setChecked(true)}}>
+                <Button onClick={handleCheckButton}>
                     <CheckCircleIcon style={{color: 'darkgreen'}} className={icon} />
                 </Button>
-                <Button onClick={()=>setAnswer('')}>
+                <Button onClick={handleClearButton}>
                     <BackspaceIcon style={{color: 'red'}} className={icon} />
                 </Button>
             </ButtonGroup>

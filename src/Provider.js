@@ -16,7 +16,25 @@ const MyProvider = (props) => {
         const [exercise, setExercise] = useState({})
 
         const [answer, setAnswer] = useState('')
+        const [correctAnswer, setCorrectAnswer] = useState('')
+
         const [checked, setChecked] = useState(false)
+
+        const isAnswerCorrect = () => {
+            return answer !== '' && answer === correctAnswer
+        }
+
+        const answerClass = () => {
+            if(checked === false){
+                return 'empty'
+            }
+            else if(isAnswerCorrect()){
+                return 'correct'
+            }
+            else{
+                return 'wrong'
+            }
+        }
 
         const handleGenerateExercises = (subject,type,max,i=null,j=null)=>{
            switch (subject) {
@@ -55,11 +73,15 @@ const MyProvider = (props) => {
             <Context.Provider value={{
                 data: {
                     exercise,
+                    correctAnswer,
                     answer,
-                    checked
+                    checked,
+                    isAnswerCorrect: isAnswerCorrect(),
+                    answerClass: answerClass()
                 },
                 methods: {
                     handleGenerateExercises,
+                    setCorrectAnswer,
                     setAnswer,
                     setChecked,
                     handleActiveExercise,

@@ -1,11 +1,11 @@
 import 'fontsource-roboto';
 
-import React from "react";
+import React, {useEffect} from "react";
 
 import {
     HashRouter as Router,
     Switch,
-    Route,
+    Route, //TODO MOZNA uzyc gdzies wewnatrz w aplikacji zamiast if'ow do wyswietlania elementow w zaleznosci od url
     Link
 } from "react-router-dom";
 
