@@ -43,6 +43,10 @@ const Math = () =>{
     const {data} = ContextData
     const {methods} = ContextData
 
+    const handlePostAnswer = () => {
+        methods.postAnswer(`${data.exercise.first} ${data.exercise.sign} ${data.exercise.second} = `)
+    }
+
     useEffect(()=>{
         methods.handleGenerateExercises('matematyka',type,max,i,j)
     },[])
@@ -76,6 +80,7 @@ const Math = () =>{
                                 answer={data.answer}
                                 setAnswer={methods.setAnswer}
                                 setChecked={methods.setChecked}
+                                handlePostAnswer={handlePostAnswer}
                                 handleActiveExercise={methods.handleActiveExercise}
                             />
                         </Grid>

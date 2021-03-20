@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 // import {
 //     Link
 // } from "react-router-dom";
@@ -17,6 +17,11 @@ import IconButton from "@material-ui/core/IconButton";
 import CardHeader from "@material-ui/core/CardHeader";
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Skeleton from "@material-ui/lab/Skeleton";
+import TextField from "@material-ui/core/TextField";
+import {FormControl} from "@material-ui/core";
+import InputLabel from "@material-ui/core/InputLabel";
+import Select from "@material-ui/core/Select";
+import MenuItem from "@material-ui/core/MenuItem";
 
 
 const useStyles = makeStyles({
@@ -28,10 +33,23 @@ const useStyles = makeStyles({
     },
 });
 
-const MultiplicationLinkCard = () => {
+const MultiplicationLinkCard = ({userId}) => {
     const classes = useStyles();
 
+    const [i,setI] = useState(1)
+    const [j,setJ] = useState(1)
+    const [max,setMax] = useState(100)
+
     // const preventDefault = (event) => event.preventDefault();
+
+    let maxValues = []
+    let ijValues = []
+    for (let ii = 1; ii<=100; ii++){
+        maxValues.push(ii)
+        if(ii<=10){
+            ijValues.push(ii)
+        }
+    }
 
     return (
         <Card className={classes.root}>
@@ -45,7 +63,7 @@ const MultiplicationLinkCard = () => {
                     title={'Mnożenie'}
                     subheader={"Ustaw zakres działań!"}
                 />
-                <Link href={'#/matematyka/mnozenie/50/3/4'} color={"inherit"}>
+                <Link href={`#/${userId}/matematyka/mnozenie/${max}/${i}/${j}`} color={"inherit"}>
                     {/*<CardMedia*/}
                     {/*    className={classes.media}*/}
                     {/*    image="https://picsum.photos/200/300"*/}
@@ -67,12 +85,60 @@ const MultiplicationLinkCard = () => {
                 </Link>
             </CardActionArea>
             <CardActions>
-                {/*<Button size="small" color="primary">*/}
-                {/*    Share*/}
-                {/*</Button>*/}
-                {/*<Button size="small" color="primary">*/}
-                {/*    Learn More*/}
-                {/*</Button>*/}
+                <FormControl fullWidth>
+                    <InputLabel id={'max-label'}>Wartość maksymalna</InputLabel>
+                    <Select
+                        role={'listbox'}
+                        name={'max'}
+                        labelId={'max-label'}
+                        id={'select-max'}
+                        onChange={(e)=>{setMax(e.target.value)}}
+                        value={max}
+                    >
+                        {
+                            maxValues.map(val=>(
+                                <MenuItem value={val}>{val}</MenuItem>
+                            ))
+                        }
+                    </Select>
+                </FormControl>
+
+                <FormControl fullWidth>
+                    <InputLabel id={'i-label'}></InputLabel>
+                    <Select
+                        role={'listbox'}
+                        name={'i'}
+                        labelId={'i-label'}
+                        id={'select-i'}
+                        onChange={(e)=>{setI(e.target.value)}}
+                        value={i}
+                    >
+                        {
+                            ijValues.map(val=>(
+                                <MenuItem value={val}>{val}</MenuItem>
+                            ))
+                        }
+                    </Select>
+                </FormControl>
+
+                <FormControl fullWidth>
+                    <InputLabel id={'j-label'}></InputLabel>
+                    <Select
+                        role={'listbox'}
+                        name={'j'}
+                        labelId={'j-label'}
+                        id={'select-j'}
+                        onChange={(e)=>{setJ(e.target.value)}}
+                        value={j}
+                    >
+                        {
+                            ijValues.map(val=>(
+                                <MenuItem value={val}>{val}</MenuItem>
+                            ))
+                        }
+                    </Select>
+                </FormControl>
+
             </CardActions>
         </Card>
     );

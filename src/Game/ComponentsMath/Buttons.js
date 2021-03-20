@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-const Buttons = ({numbers,answer, setAnswer, setChecked, handleActiveExercise})=>{
+const Buttons = ({numbers,answer, setAnswer, setChecked, handleActiveExercise, handlePostAnswer})=>{
 
     const {root, button, icon, refresh} = useStyles()
 
@@ -51,6 +51,7 @@ const Buttons = ({numbers,answer, setAnswer, setChecked, handleActiveExercise})=
 
     const handleCheckButton = () =>{
             setChecked(true)
+            handlePostAnswer()
     }
     const handleClearButton = () =>{
         setChecked(false)

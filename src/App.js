@@ -1,30 +1,24 @@
+// TODO Przeniesc dane, metody z ContextData do propsow zeby uniezaleznic komponenty i umozliwic testowanie !!!!!
+
 import 'fontsource-roboto';
-
 import React, {useEffect} from "react";
-
 import {
     HashRouter as Router,
     Switch,
-    Route, //TODO MOZNA uzyc gdzies wewnatrz w aplikacji zamiast if'ow do wyswietlania elementow w zaleznosci od url
+    Route,
     Link
 } from "react-router-dom";
-
-import logo from './logo.svg';
+import {makeStyles} from "@material-ui/core";
 import './App.css';
-
-import LoginForm from './Layouts/LoginForm'
-import SignForm from "./Layouts/SignForm";
-import AddressForm from "./Layouts/AddressForm";
-import Checkout from "./Layouts/Checkout";
-import CustomContainer from "./Moje/CustomContainer";
 
 import MyProvider from "./Provider";
 
-import {makeStyles} from "@material-ui/core";
-
+import CustomContainer from "./Moje/CustomContainer"; //TODO xxx
+import AddUser from "./Game/Auth/AddUser";
 import StartView from "./Game/StartView";
 import Polish from "./Game/Polish";
 import Math from "./Game/Math";
+import RouteParams from "./Game/RouteParams";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -32,7 +26,8 @@ const useStyles = makeStyles((theme) => ({
         minHeight: '100vh',
         display: "flex",
         justifyContent: 'center',
-        alignItems: "center"
+        alignItems: "center",
+        overflow: 'hidden' //FIX bug when select hoover
     },
 
 }));
@@ -47,26 +42,37 @@ function App() {
       {/*<SignForm />*/}
       {/*<Checkout />*/}
 
-      <MyProvider>
 
-          <Router>
-              <Switch>
-                  <Route exact path={'/'} >
-                    <StartView />
-                  </Route>
-                  <Route exact path={'/matematyka/:type/:max/:i?/:j?'}>
-                      <Math/>
-                  </Route>
-                  <Route exact path={'/polski/:type/:max'}>
-                      <Polish/>
-                  </Route>
-                  <Route exact path={'/test'}>
-                      <CustomContainer/>
-                  </Route>
-              </Switch>
-          </Router>
+        <Router>
 
-      </MyProvider>
+            <MyProvider>
+
+                <Route path={'/:userId/:category?/:subcategory?'}>
+                    <RouteParams />
+                </Route>
+
+                <Switch>
+                    <Route exact path={'/'}>
+                        <AddUser/>
+                    </Route>
+                    <Route exact path={'/:userId'}>
+                        <StartView/>
+                    </Route>
+                    <Route exact path={'/:userId/matematyka/:type/:max/:i?/:j?'}>
+                        <Math/>
+                    </Route>
+                    <Route exact path={'/:userId/polski/:type/:max'}>
+                        <Polish/>
+                    </Route>
+                    <Route exact path={'/test'}>
+                        <CustomContainer/>
+                    </Route>
+                </Switch>
+
+            </MyProvider>
+
+        </Router>
+
 
     </div>
   );

@@ -28,7 +28,7 @@ const useStyles = makeStyles({
     },
 });
 
-const ReadingLinkCard = ({path, textTitle, subTitle}) => {
+const ReadingLinkCard = ({userId}) => {
     const classes = useStyles();
 
     // const preventDefault = (event) => event.preventDefault();
@@ -45,7 +45,7 @@ const ReadingLinkCard = ({path, textTitle, subTitle}) => {
                     title={'Czytanie ze zrozumieniem'}
                     subheader={"Wybierz poziom trudności!"}
                 />
-                <Link href={'#/polski/czytanie/proste'} color={"inherit"}>
+                <Link href={`#/${userId}/polski/czytanie/proste`} color={"inherit"}>
                     {/*<CardMedia*/}
                     {/*    className={classes.media}*/}
                     {/*    image="https://picsum.photos/200/300"*/}
