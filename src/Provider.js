@@ -94,6 +94,7 @@ const MyProvider = (props) => {
             setVisit(data.id)
         }
 
+        //TODO dodac dla j.polskiego !!!!!!!!!!!!!
         const postAnswer = async (text) => {
             const {data} = await axios.post('http://localhost:5000/dashboard/answer',{
                 category: routerParams.category,
