@@ -1,7 +1,9 @@
+// TODO przepinac dynamicznie API_URL na produkcji !!!!!!!!
+
 // TODO Przeniesc dane, metody z ContextData do propsow zeby uniezaleznic komponenty i umozliwic testowanie !!!!!
 
 import 'fontsource-roboto';
-import React, {useEffect} from "react";
+import React, {useContext, useEffect} from "react";
 import {
     HashRouter as Router,
     Switch,
@@ -19,6 +21,7 @@ import StartView from "./Game/StartView";
 import Polish from "./Game/Polish";
 import Math from "./Game/Math";
 import RouteParams from "./Game/RouteParams";
+import Context from "./Context";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -34,48 +37,43 @@ const useStyles = makeStyles((theme) => ({
 
 function App() {
 
-   const {root} = useStyles()
+    const {root} = useStyles()
 
-  return (
-    <div className={root}>
-      {/*<LoginForm />*/}
-      {/*<SignForm />*/}
-      {/*<Checkout />*/}
+    const ContextData = useContext(Context)
+    console.log({ContextData})
 
-
-        <Router>
-
-            <MyProvider>
-
-                <Route path={'/:userId/:category?/:subcategory?'}>
-                    <RouteParams />
-                </Route>
-
-                <Switch>
-                    <Route exact path={'/'}>
-                        <AddUser/>
+    return (
+            <div className={root}>
+                {/*<LoginForm />*/}
+                {/*<SignForm />*/}
+                {/*<Checkout />*/}
+                <Router>
+                    <Route path={'/:userId/:category?/:subcategory?'}>
+                        <RouteParams/>
                     </Route>
-                    <Route exact path={'/:userId'}>
-                        <StartView/>
-                    </Route>
-                    <Route exact path={'/:userId/matematyka/:type/:max/:i?/:j?'}>
-                        <Math/>
-                    </Route>
-                    <Route exact path={'/:userId/polski/:type/:max'}>
-                        <Polish/>
-                    </Route>
-                    <Route exact path={'/test'}>
-                        <CustomContainer/>
-                    </Route>
-                </Switch>
 
-            </MyProvider>
+                    <Switch>
+                        <Route exact path={'/'}>
+                            <AddUser/>
+                            {/*//TODO przekazywac wszystko propsami, moze jakis zewnetrzny komponent Container dodac*/}
+                        </Route>
+                        <Route exact path={'/:userId'}>
+                            <StartView/>
+                        </Route>
+                        <Route exact path={'/:userId/matematyka/:type/:max/:i?/:j?'}>
+                            <Math/>
+                        </Route>
+                        <Route exact path={'/:userId/polski/:type/:max'}>
+                            <Polish/>
+                        </Route>
+                        <Route exact path={'/test'}>
+                            <CustomContainer/>
+                        </Route>
+                    </Switch>
+                </Router>
+            </div>
 
-        </Router>
-
-
-    </div>
-  );
+    );
 }
 
 export default App;

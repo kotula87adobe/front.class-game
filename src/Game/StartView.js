@@ -29,6 +29,8 @@ const StartView = () =>{
     const {user} = useParams();
     // ***
 
+    console.log('111111111111111111111111111111111111111')
+
     return (
         <Grid className={root} container alignItems={"center"} justify={"center"} spacing={1}>
             <MultiplicationLinkCard userId={ContextData.data.userId} />

@@ -9,7 +9,7 @@ const AddUser = props => {
     const ContextData = useContext(Context)
 
     const getUserId = async () => {
-        const {data} = await axios.post('http://localhost:5000/dashboard/user')
+        const {data} = await axios.post(`${ContextData.constants.API_URL}dashboard/user`)
         ContextData.methods.setUserId(data.id)
     }
 
@@ -17,9 +17,7 @@ const AddUser = props => {
 
     return (
         <>
-
             {ContextData.data?.userId ? <Redirect to={`${ContextData.data?.userId}`} /> : <p>----------</p>}
-
         </>
     )
 

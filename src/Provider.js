@@ -44,6 +44,10 @@ const MyProvider = (props) => {
 
         // *** GETTERS
 
+        const API_URL = () => {
+            return window.location.href.indexOf('localhost') > 0 ? 'http://localhost:5000/' : 'https://api-class-game.2dsp35.pl/';
+        }
+
         const isAnswerCorrect = () => {
             return answer !== '' && answer === correctAnswer
         }
@@ -90,13 +94,13 @@ const MyProvider = (props) => {
         }
 
         const postVisit = async () => {
-            const {data} = await axios.post('http://localhost:5000/dashboard/visit', {userId})
+            const {data} = await axios.post(`${API_URL()}dashboard/visit`, {userId})
             setVisit(data.id)
         }
 
         //TODO dodac dla j.polskiego !!!!!!!!!!!!!
         const postAnswer = async (text) => {
-            const {data} = await axios.post('http://localhost:5000/dashboard/answer',{
+            const {data} = await axios.post(`${API_URL()}/dashboard/answer`,{
                 category: routerParams.category,
                 subcategory: routerParams.subcategory,
                 text: text,
@@ -159,7 +163,7 @@ const MyProvider = (props) => {
                     postAnswer
                 },
                 constants: {
-
+                    API_URL: API_URL()
                 }
             }}>
                 {props.children}
