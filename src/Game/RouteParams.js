@@ -6,19 +6,21 @@ import {
     useLocation
 } from "react-router-dom";
 
-const RouteParams = () => {
+const RouteParams = props => {
 
 
     const params = useParams()
     const location = useLocation()
     console.log({params})
 
-    const ContextData = useContext(Context)
+    const {data} = props
+    const {methods} = props
+    const {constants} = props
 
     console.log({location})
 
     useEffect(()=>{
-        ContextData.methods.setRouterParams(params)
+        methods.setRouterParams(params)
     },[location])
 
     return(

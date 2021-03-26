@@ -30,18 +30,17 @@ const useStyle = makeStyles(theme=>({
     }
 }))
 
-const Math = () =>{
+const Math = props =>{
 
     const classes = useStyle()
     const {paper} = useStyle()
 
-    const ContextData = useContext(Context)
-
     const {type,max, i,j} = useParams()
     console.log({j})
 
-    const {data} = ContextData
-    const {methods} = ContextData
+    const {data} = props
+    const {methods} = props
+    const {constants} = props
 
     const handlePostAnswer = () => {
         methods.postAnswer(`${data.exercise.first} ${data.exercise.sign} ${data.exercise.second} = `)

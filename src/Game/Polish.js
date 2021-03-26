@@ -30,17 +30,16 @@ const useStyle = makeStyles(theme=>({
     }
 }))
 
-const Polish = () =>{
+const Polish = props =>{
 
     const classes = useStyle()
     const {paper} = useStyle()
 
-    const ContextData = useContext(Context)
-
     const {type,max} = useParams()
 
-    const {data} = ContextData
-    const {methods} = ContextData
+    const {data} = props
+    const {methods} = props
+    const {constants} = props
 
 
     useEffect(()=>{

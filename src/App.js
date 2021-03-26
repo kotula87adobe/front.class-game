@@ -49,25 +49,25 @@ function App() {
                 {/*<Checkout />*/}
                 <Router>
                     <Route path={'/:userId/:category?/:subcategory?'}>
-                        <RouteParams/>
+                        <RouteParams {...ContextData} />
                     </Route>
 
                     <Switch>
                         <Route exact path={'/'}>
-                            <AddUser/>
+                            <AddUser {...ContextData} />
                             {/*//TODO przekazywac wszystko propsami, moze jakis zewnetrzny komponent Container dodac*/}
                         </Route>
                         <Route exact path={'/:userId'}>
-                            <StartView/>
+                            <StartView {...ContextData} />
                         </Route>
                         <Route exact path={'/:userId/matematyka/:type/:max/:i?/:j?'}>
-                            <Math/>
+                            <Math {...ContextData} />
                         </Route>
                         <Route exact path={'/:userId/polski/:type/:max'}>
-                            <Polish/>
+                            <Polish {...ContextData} />
                         </Route>
                         <Route exact path={'/test'}>
-                            <CustomContainer/>
+                            <CustomContainer {...ContextData} />
                         </Route>
                     </Switch>
                 </Router>
