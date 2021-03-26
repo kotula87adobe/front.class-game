@@ -1,7 +1,7 @@
 import React, {useContext} from "react";
 
 import {
-    Link, useParams
+    useParams
 } from "react-router-dom";
 
 import {Grid} from "@material-ui/core";

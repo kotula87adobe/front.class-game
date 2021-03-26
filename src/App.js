@@ -3,17 +3,17 @@
 // TODO Przeniesc dane, metody z ContextData do propsow zeby uniezaleznic komponenty i umozliwic testowanie !!!!!
 
 import 'fontsource-roboto';
-import React, {useContext, useEffect} from "react";
+import React, {useContext} from "react";
 import {
     HashRouter as Router,
     Switch,
     Route,
-    Link
+    // Link
 } from "react-router-dom";
 import {makeStyles} from "@material-ui/core";
 import './App.css';
 
-import MyProvider from "./Provider";
+// import MyProvider from "./Provider";
 
 import CustomContainer from "./Moje/CustomContainer"; //TODO xxx
 import AddUser from "./Game/Auth/AddUser";

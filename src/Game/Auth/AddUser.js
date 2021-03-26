@@ -1,7 +1,6 @@
-import React, {useContext, useEffect} from "react";
+import React, {useEffect} from "react";
 
 import axios from "axios";
-import Context from "../../Context";
 import { Redirect } from "react-router-dom";
 
 const AddUser = props => {

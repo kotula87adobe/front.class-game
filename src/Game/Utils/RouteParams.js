@@ -1,5 +1,4 @@
 import React, {useContext, useEffect} from "react";
-import Context from "../../Context";
 
 import {
     useParams,

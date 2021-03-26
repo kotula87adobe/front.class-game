@@ -1,9 +1,9 @@
-import React, {Component, useEffect, useState} from 'react'
+import React, {useEffect, useState} from 'react'
 
-import ReactDOM from "react-dom";
-import {
-    useParams
-} from "react-router-dom";
+// import ReactDOM from "react-dom";
+// import {
+//     useParams
+// } from "react-router-dom";
 
 import Context from "./Context";
 import axios from "axios";

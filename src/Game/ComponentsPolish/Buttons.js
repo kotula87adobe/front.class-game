@@ -7,8 +7,6 @@ import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import BackspaceIcon from '@material-ui/icons/Backspace';
 import CachedIcon from '@material-ui/icons/Cached';
 
-import _ from 'lodash';
-
 const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',

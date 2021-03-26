@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from "react";
+import React, {useEffect} from "react";
 import {
     useParams
 } from "react-router-dom";
@@ -7,11 +7,8 @@ import {Container, Grid, makeStyles} from "@material-ui/core";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Paper from "@material-ui/core/Paper";
 
-import Context from "../Context";
-
 import Exercise from "./ComponentsMath/Exercise";
 import Buttons from "./ComponentsMath/Buttons";
-import UserList from "./UserList";
 
 const useStyle = makeStyles(theme=>({
     paper: {
