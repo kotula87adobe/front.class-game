@@ -33,7 +33,7 @@ const Exercise = ({text,question,answers,correctAnswer}) => {
 }
 
 Exercise.propTypes = {
-    // testowaWartosc: PropTypes.array.isRequired
+    testowaWartosc: PropTypes.array.isRequired
 }
 
 export default Exercise;
