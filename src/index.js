@@ -9,6 +9,8 @@ import MyProvider from "./Provider";
 ReactDOM.render(
   <React.StrictMode>
       <MyProvider>
+          {/*TODO przekazac dane do APP przez propsy nie contextdata jak teraz*/}
+          {/*TODO Moze opakowac dodatkowym contenerem*/}
           <App />
       </MyProvider>
   </React.StrictMode>,

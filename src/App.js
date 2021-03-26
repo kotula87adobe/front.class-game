@@ -20,7 +20,7 @@ import AddUser from "./Game/Auth/AddUser";
 import StartView from "./Game/StartView";
 import Polish from "./Game/Polish";
 import Math from "./Game/Math";
-import RouteParams from "./Game/RouteParams";
+import RouteParams from "./Game/Utils/RouteParams";
 import Context from "./Context";
 
 
@@ -48,6 +48,9 @@ function App() {
                 {/*<SignForm />*/}
                 {/*<Checkout />*/}
                 <Router>
+
+                    {/*/TODO zrobic osobny komponent tylko do sprawdzania typów/*/}
+
                     <Route path={'/:userId/:category?/:subcategory?'}>
                         <RouteParams {...ContextData} />
                     </Route>
