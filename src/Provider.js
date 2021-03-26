@@ -75,6 +75,7 @@ const MyProvider = (props) => {
                        case 'mnozenie':
                            setExercisesList(mathMultiplicationGenerateExercises(max,i,j))
                            break;
+                       default: break;
                    }
                    break;
                case 'polski':
@@ -82,7 +83,10 @@ const MyProvider = (props) => {
                        case 'czytanie':
                            setExercisesList(polishReadingExercises(max))
                            break;
+                       default: break;
                    }
+                   break;
+               default:
                    break;
            }
         }

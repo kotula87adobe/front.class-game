@@ -1,7 +1,7 @@
 import React from "react";
 import {makeStyles, Typography} from "@material-ui/core";
 
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -24,10 +24,6 @@ const Exercise = ({first,sign,second,result, answer}) => {
         </div>
     )
 
-}
-
-Exercise.propTypes = {
-    testowaWartosc: PropTypes.array.isRequired
 }
 
 export default Exercise;

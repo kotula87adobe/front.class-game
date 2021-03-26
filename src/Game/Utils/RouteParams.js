@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from "react";
+import React, {useEffect} from "react";
 
 import {
     useParams,
@@ -12,9 +12,9 @@ const RouteParams = props => {
     const location = useLocation()
     console.log({params})
 
-    const {data} = props
+    // const {data} = props
     const {methods} = props
-    const {constants} = props
+    // const {constants} = props
 
     console.log({location})
 

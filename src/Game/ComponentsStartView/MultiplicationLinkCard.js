@@ -97,7 +97,7 @@ const MultiplicationLinkCard = ({userId}) => {
                     >
                         {
                             maxValues.map(val=>(
-                                <MenuItem value={val}>{val}</MenuItem>
+                                <MenuItem value={val} key={val}>{val}</MenuItem>
                             ))
                         }
                     </Select>
@@ -115,7 +115,7 @@ const MultiplicationLinkCard = ({userId}) => {
                     >
                         {
                             ijValues.map(val=>(
-                                <MenuItem value={val}>{val}</MenuItem>
+                                <MenuItem value={val} key={val}>{val}</MenuItem>
                             ))
                         }
                     </Select>
@@ -133,7 +133,7 @@ const MultiplicationLinkCard = ({userId}) => {
                     >
                         {
                             ijValues.map(val=>(
-                                <MenuItem value={val}>{val}</MenuItem>
+                                <MenuItem value={val} key={val}>{val}</MenuItem>
                             ))
                         }
                     </Select>

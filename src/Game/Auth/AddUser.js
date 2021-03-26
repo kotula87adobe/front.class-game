@@ -14,7 +14,9 @@ const AddUser = props => {
         methods.setUserId(data.id)
     }
 
-    useEffect(getUserId,[])
+    useEffect(() => {
+        (async ()=> await getUserId())()
+    },[])
 
     return (
         <>

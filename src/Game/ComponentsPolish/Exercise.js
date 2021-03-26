@@ -1,5 +1,6 @@
 import React from "react";
 import {makeStyles, Typography} from "@material-ui/core";
+import PropTypes from "prop-types";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -29,6 +30,10 @@ const Exercise = ({text,question,answers,correctAnswer}) => {
         </div>
     )
 
+}
+
+Exercise.propTypes = {
+    // testowaWartosc: PropTypes.array.isRequired
 }
 
 export default Exercise;
