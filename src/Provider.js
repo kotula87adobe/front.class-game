@@ -10,6 +10,7 @@ import axios from "axios";
 import _ from 'lodash';
 
 import {mathMultiplicationGenerateExercises} from "./Game/Exercises/MathMultiplication";
+import {mathMultiplicationSpecificNumberGenerateExercises} from "./Game/Exercises/MathMultiplicationSpecificNumber";
 import {polishReadingExercises} from "./Game/Exercises/polishReading";
 
 const MyProvider = (props) => {
@@ -73,9 +74,13 @@ const MyProvider = (props) => {
                case 'matematyka':
                    switch (type) {
                        case 'mnozenie':
-                           setExercisesList(mathMultiplicationGenerateExercises(max,i,j))
+                           setExercisesList(mathMultiplicationGenerateExercises(max, i, j))
                            break;
-                       default: break;
+                       case 'mnozenie-liczba':
+                           setExercisesList(mathMultiplicationSpecificNumberGenerateExercises(max, i, j))
+                           break;
+                       default:
+                           break;
                    }
                    break;
                case 'polski':
