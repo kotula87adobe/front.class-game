@@ -2,7 +2,7 @@ const exercises = {
 
     proste: [
         {
-            text: 'Biały kot je z miski.',
+            text: 1,
             question: 'Jakiego koloru jest kot?',
             answers: ['czarny','biały','bury'],
             correctAnswer: 'biały'

@@ -20,7 +20,7 @@ const Exercise = ({text,question,answers,correctAnswer}) => {
     const {root, exercise, quest} = useStyles()
 
     return (
-        <div className={root}>
+        <div className={root} data-testid="form">
             <Typography className={exercise} component={"h2"} align={"left"}>
                 {text}
             </Typography>
@@ -32,8 +32,13 @@ const Exercise = ({text,question,answers,correctAnswer}) => {
 
 }
 
+//TODO napisać jakies testy
+// * w zależnosci od propsow czy wyswietla sie to co ma
+
 Exercise.propTypes = {
-    testowaWartosc: PropTypes.array.isRequired
+    answer: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired,
+    question: PropTypes.string.isRequired,
 }
 
 export default Exercise;

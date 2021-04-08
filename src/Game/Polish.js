@@ -59,6 +59,8 @@ const Polish = props =>{
                     variant={"elevation"}
                     elevation={3}
                 >
+                    { data.exercise?.text &&
+
                     <Grid container>
                         <Grid item xs={12}>
                             <Exercise
@@ -66,7 +68,7 @@ const Polish = props =>{
                                 answer={data.answer}
                             />
                         </Grid>
-                        {data.exercise?.answers && <Grid item xs={12}>
+                        <Grid item xs={12}>
                             <Buttons
                                 answers={data.exercise.answers}
                                 answer={data.answer}
@@ -74,8 +76,10 @@ const Polish = props =>{
                                 setChecked={methods.setChecked}
                                 handleActiveExercise={methods.handleActiveExercise}
                             />
-                        </Grid>}
+                        </Grid>
                     </Grid>
+
+                    }
                 </Paper>
             </Container>
         </>

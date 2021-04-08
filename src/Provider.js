@@ -9,7 +9,7 @@ import Context from "./Context";
 import axios from "axios";
 import _ from 'lodash';
 
-import {mathMultiplicationGenerateExercises} from "./Game/Exercises/mathMultiplication";
+import {mathMultiplicationGenerateExercises} from "./Game/Exercises/MathMultiplication";
 import {polishReadingExercises} from "./Game/Exercises/polishReading";
 
 const MyProvider = (props) => {
